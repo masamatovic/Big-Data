@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('r2017/part-00000-351b7e9f-a416-45d8-a4c8-88c1d36ffacb-c000.csv', skip_blank_lines=True)
+data = pd.read_csv('r2017/part-00000-3059398c-3aba-41f4-8e89-a0a8a7677df8-c000.csv', skip_blank_lines=True)
 
 s = pd.DataFrame(data)
 s1 = s.loc[s['city'] == 'Chennai']
@@ -46,4 +46,4 @@ plt.title('Hyderabad')
 plt.bar(s4.index, s4['count'], tick_label=s4.index, color=['green', 'yellow', 'orange', 'red', 'purple', 'maroon'])
 
 plt.tight_layout()
-plt.show()
+plt.savefig('results.png')
