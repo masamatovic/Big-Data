@@ -5,7 +5,7 @@ $ cd docker-specification
 $ docker-compose up --build
 ```
 ## put datasets on hdfs
-* unzip datasest.zip 
+* unzip datasets.zip 
 * in root directory run
 ```
 $ ./run.sh
@@ -17,8 +17,8 @@ $ ./run.sh
 ```
 ## save results of bacth processing as png
 ```
-$cd results
-$./run.sh
+$ cd results
+$ ./run.sh
 ```
 ## run stream processing
 ```
