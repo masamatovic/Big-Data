@@ -1,7 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from os import listdir
 
-data = pd.read_csv('r2017/part-00000-3059398c-3aba-41f4-8e89-a0a8a7677df8-c000.csv', skip_blank_lines=True)
+
+CSV_Files = [file for file in listdir('r2017/') if file.endswith('.csv')]
+CSV_File = CSV_Files[0]
+data = pd.read_csv('r2017/' + CSV_File)
 
 s = pd.DataFrame(data)
 s1 = s.loc[s['city'] == 'Chennai']

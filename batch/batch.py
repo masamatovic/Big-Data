@@ -103,11 +103,6 @@ print("====================================== pivot table 2016 =================
 pivotDF_2016 = df_2016.groupBy("city", "date").pivot("parameter").avg("value")
 pivotDF_2016.show()
 
-#provera broja dana merenja za grad
-# pr = pivotDF.groupBy("city").count()
-# pr1 = pr.orderBy("city", ascending=True)
-# pr1.repartition(1).write.csv("hdfs://namenode:9000/air-pollution/dani", sep='|')
-# pr1.show()
 
 #Racunanje AQI-a sa svaki parametar  
 
@@ -156,7 +151,6 @@ filte_2016 = finalAQI_2016.filter((finalAQI_2016.city == "Chennai"))
 filte_2016 = filte_2016.withColumn("month", filte_2016["date"].substr(6, 2))
 new = filte_2016.groupBy("city", "month").pivot("aqi").count()
 b = new.drop("null")
-#new.show()
 setDate = b.withColumn("month", when((col("month").substr(1,1) == '0'), regexp_replace("month", '0', '')).otherwise(col('month')))
 setDate.show()
 
@@ -181,9 +175,5 @@ d2.orderBy("month", ascending=True).show()
 
 final = setDate.join(d2, on=["month"], how='inner')
 final.show()
-
-
-#finalOrderd.repartition(1).write.csv("hdfs://namenode:9000/air-pollution/final_2017", sep=',')
-#finalOrderd_2016.repartition(1).write.csv("hdfs://namenode:9000/air-pollution/final_2016", sep=',')
 
 

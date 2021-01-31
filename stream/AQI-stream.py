@@ -56,11 +56,11 @@ if __name__ == "__main__":
             df.show()
 
             df.createOrReplaceTempView("aqis")
-            #Upit koji racuna procesni aqi u oviru tok paketa
+            #
+            #Query that calculates the average aqi
             newDF = spark.sql("select city, avg(aqi) as avgAQI from aqis group by city")
-            #newDF.show()
             
-            #ispisivanje posruke na osnovu prosecne vrednosti
+            #printing a message based on an average value
             newDF.createOrReplaceTempView("aqis")
             finalDF = spark.sql("select avgAQI, \
                                     case when avgAQI <= 50 then 'GOOD' \
