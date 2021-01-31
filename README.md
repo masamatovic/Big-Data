@@ -11,13 +11,17 @@ $ docker-compose up --build
 $ ./run.sh
 ```
 ## run batch processing
+```
 $ cd batch
 $ ./run.sh
-
+```
 ## save results of bacth processing as png
+```
 $cd results
 $./run.sh
-
+```
 ## run stream processing
+```
 $ cd stream
 $ ./run.sh
+```
